@@ -9,17 +9,17 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "header",
-      "settings": {}
-    },
     "hero-banner": {
       "type": "hero-banner",
+      "settings": {}
+    },
+    "main": {
+      "type": "header",
       "settings": {}
     }
   },
   "order": [
-    "main",
-    "hero-banner"
+    "hero-banner",
+    "main"
   ]
 }
