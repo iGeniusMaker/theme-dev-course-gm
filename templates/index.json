@@ -18,8 +18,5 @@
       "settings": {}
     }
   },
-  "order": [
-    "hero-banner",
-    "main"
-  ]
+  "order": ["hero-banner", "main"]
 }
