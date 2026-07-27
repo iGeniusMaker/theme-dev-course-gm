@@ -9,14 +9,22 @@
  */
 {
   "sections": {
-    "hero-banner": {
-      "type": "hero-banner",
-      "settings": {}
-    },
     "main": {
       "type": "header",
       "settings": {}
+    },
+    "hero_banner_gCyNDx": {
+      "type": "hero-banner",
+      "name": "Hero banner",
+      "settings": {
+        "heading_text": "This is your awesome heading",
+        "description_text": "This is your awesome explainer text.",
+        "full_width_section": true
+      }
     }
   },
-  "order": ["hero-banner", "main"]
+  "order": [
+    "main",
+    "hero_banner_gCyNDx"
+  ]
 }

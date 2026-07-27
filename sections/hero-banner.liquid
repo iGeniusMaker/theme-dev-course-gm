@@ -1,11 +1,55 @@
-<div>
-    {{ "hero-apparel-1" | placeholder_svg_tag }}
+{%- liquid
+ assign full_width_section = section.settings.full_width_section
+ assign banner = section.settings.banner
+ assign heading_text = section.settings.heading_text
+ assign description_text = section.settings.description_text
+-%}
+
+<div class="hero-banner page-width{% if full_width_section %} page-width--full{% endif %}">
+    <div class="hero-banner__image image-wrapper">
+        {% if banner != blank %}
+            {{ banner | image_url: width: 1000 | image_tag }}
+        {% else %}
+            {{ "hero-apparel-1" | placeholder_svg_tag }}
+        {% endif %}
+    </div>
+    <div class="hero-banner__text">
+        <h2>{{ heading_text }}</h2>
+        <p>{{ description_text }}</p>
+    </div>
+    
 </div>
+
 
 {% schema %}
 {
     "name": "Hero banner",
-    "settings": [],
+    "tag": "section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "banner",
+            "label": "Banner image"
+        },
+        {
+            "type": "text",
+            "id": "heading_text",
+            "label": "Heading text",
+            "default": "This is your awesome heading"
+        },
+         {
+            "type": "textarea",
+            "id": "description_text",
+            "label": "Description text",
+            "default": "This is your awesome explainer text."
+        },
+        {
+            "type": "checkbox",
+            "id":"full_width_section",
+            "label": "Full width section",
+            "default": false
+        }
+    ],
     "presets": [
         {
             "name": "Hero banner"
