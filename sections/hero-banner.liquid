@@ -10,7 +10,7 @@
         {% if banner != blank %}
             {{ banner | image_url: width: 1000 | image_tag }}
         {% else %}
-            {{ "hero-apparel-1" | placeholder_svg_tag }}
+            {{ 'hero-apparel-1' | placeholder_svg_tag }}
         {% endif %}
     </div>
     <div class="hero-banner__text">
@@ -52,7 +52,12 @@
     ],
     "presets": [
         {
-            "name": "Hero banner"
+            "name": "Hero banner",
+            "settings": {
+                "heading_text": "This is your awesome heading",
+                "description_text": "This is your awesome explainer text.",
+                "full_width_section": false
+            }
         }
     ]
 }
