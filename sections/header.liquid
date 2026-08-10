@@ -1,1 +1,80 @@
-<p>This is the header section</p>
+{%- liquid
+  assign menu = section.settings.menu
+-%}
+<div class="page-width">
+<nav class="primary-navigation">
+    <ul class="menu flex-wrap">
+        {% for link in menu.links %}
+            {% if link.links != blank %}
+                <li>
+                   <details class="dropdown-list">
+                        <summary>{{ link.title }} <span>icon</span></summary>
+                        <ul class="sub-menu">
+                            {% for child in link.links %}
+                                {% if child.links != blank %}
+                                    <li>
+                                        <details class="dropdown-list dropdown-list-nested">
+                                            <summary>{{ child.title }} <span>icon</span></summary>
+                                            <ul class="sub-menu sub-menu--flyout">
+                                                {% for grand_child in child.links %}
+                                                    <li>{{ grand_child.title | link_to: grand_child.url }}</li>
+                                                 {% endfor %}   
+                                            </ul>
+                                        </details>
+                                    </li>
+                                {% else %}
+                                    <li>{{ child.title | link_to: child.url }}</li>
+                                {% endif %}
+                                
+                            {% endfor %}
+                        </ul>
+                    </details> 
+                </li>
+            {% else %}
+                <li>{{ link.title | link_to: link.url }}</li>
+            {% endif %}
+            
+        {% endfor %}
+    </ul>
+</nav>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const primaryNav = document.querySelector(".primary-navigation");
+
+        if (primaryNav){
+           function closeAllDropdowns(){
+            const dropdowns = primaryNav.querySelectorAll(".dropdown-list[open]");
+            dropdowns.forEach((dropdown) => {
+                dropdown.open = false;
+            });
+        }
+        
+        document.addEventListener("keydown", e => {
+            if (e.key !== "Escape") return;
+            closeAllDropdowns();
+        });
+
+        document.addEventListener("click", e => {
+            if (!primaryNav.contains(e.target)) closeAllDropdowns();
+        });
+
+        }
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Header",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Select menu",
+            "default": "main-menu"
+        }
+    ]
+}
+{% endschema %}

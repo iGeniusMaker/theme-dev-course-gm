@@ -9,10 +9,6 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "header",
-      "settings": {}
-    },
     "hero_banner_gCyNDx": {
       "type": "hero-banner",
       "name": "Hero banner",
@@ -23,8 +19,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "hero_banner_gCyNDx"
-  ]
+  "order": ["hero_banner_gCyNDx"]
 }
