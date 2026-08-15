@@ -8,22 +8,26 @@
             {% if link.links != blank %}
                 <li>
                    <details class="dropdown-list">
-                        <summary>{{ link.title }} <span>icon</span></summary>
+                        <summary class="flex-between">{{ link.title }}
+                            {% render 'icons', icon_name: 'chevron-down', icon_stroke: 1.5 %}
+                        </summary>
                         <ul class="sub-menu">
                             {% for child in link.links %}
                                 {% if child.links != blank %}
                                     <li>
                                         <details class="dropdown-list dropdown-list-nested">
-                                            <summary>{{ child.title }} <span>icon</span></summary>
+                                            <summary class="flex-between">{{ child.title }}
+                                                {% render 'icons', icon_name: 'chevron-right', icon_stroke: 1.5 %}
+                                            </summary>
                                             <ul class="sub-menu sub-menu--flyout">
                                                 {% for grand_child in child.links %}
-                                                    <li>{{ grand_child.title | link_to: grand_child.url }}</li>
+                                                    <li>{{ grand_child.title | link_to: grand_child.url, class: 'd-block' }}</li>
                                                  {% endfor %}   
                                             </ul>
                                         </details>
                                     </li>
                                 {% else %}
-                                    <li>{{ child.title | link_to: child.url }}</li>
+                                    <li>{{ child.title | link_to: child.url, class: 'd-block' }}</li>
                                 {% endif %}
                                 
                             {% endfor %}
@@ -31,7 +35,7 @@
                     </details> 
                 </li>
             {% else %}
-                <li>{{ link.title | link_to: link.url }}</li>
+                <li>{{ link.title | link_to: link.url, class: 'd-block' }}</li>
             {% endif %}
             
         {% endfor %}
