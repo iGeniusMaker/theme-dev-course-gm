@@ -12,8 +12,8 @@
     "page_width": 1000,
     "page_padding": 16,
     "page_padding_desktop": 80,
-    "body_font": "sans_serif_n4",
-    "heading_font": "bagel_fat_one_n4",
+    "body_font": "inter_n4",
+    "heading_font": "poppins_n5",
     "content_for_index": []
   },
   "presets": {

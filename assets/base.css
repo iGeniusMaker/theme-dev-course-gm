@@ -115,6 +115,21 @@ summary::-webkit-details-marker {
   display: block;
 }
 
+.btn {
+  display: inline-block;
+  background: black;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.btn--secondary {
+  background: rgb(187, 49, 49);
+  color: #fff;
+}
+
+/* HEADER MENU */
+
 .dropdown-list {
   position: relative;
 }
@@ -137,4 +152,21 @@ summary::-webkit-details-marker {
 .dropdown-list-nested > summary,
 .sub-menu a {
   padding: 10px 20px;
+}
+
+/* RICHTEXT */
+
+.richtext {
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+  background-color: var(--section-bg);
+}
+
+.richtext__content {
+  padding: var(--padding-inner);
+  background-color: var(--inner-bg);
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  gap: 1rem;
 }
