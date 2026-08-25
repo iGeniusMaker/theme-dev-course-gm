@@ -19,34 +19,34 @@
         "full_width_section": true
       }
     },
-    "richtext_Ydcxqt": {
+    "richtext_YUDRBD": {
       "type": "richtext",
       "blocks": {
-        "caption_wHhWtr": {
+        "caption_9XCxpf": {
           "type": "caption",
           "settings": {
             "caption": "Caption-Eyebrow Text"
           }
         },
-        "heading_EWrV6t": {
+        "heading_TFYwy9": {
           "type": "heading",
           "settings": {
             "heading": "Your awesome heading text goes here."
           }
         },
-        "sub_heading_yLdFgW": {
+        "sub_heading_GYXKXU": {
           "type": "sub_heading",
           "settings": {
             "sub_heading": "This is the place to enter a relevant sub-heading text."
           }
         },
-        "description_AnUHjh": {
+        "description_rhpUbU": {
           "type": "description",
           "settings": {
-            "description": "<p>﻿This is your changes to pursuade your customers by explaining them about the heading</p>"
+            "description": "<p>This is your changes to pursuade your customers by explaining them about the heading.</p>"
           }
         },
-        "buttons_PDtEf3": {
+        "buttons_tPNdX6": {
           "type": "buttons",
           "settings": {
             "primary_btn_text": "Shop now",
@@ -57,28 +57,28 @@
         }
       },
       "block_order": [
-        "caption_wHhWtr",
-        "heading_EWrV6t",
-        "sub_heading_yLdFgW",
-        "description_AnUHjh",
-        "buttons_PDtEf3"
+        "caption_9XCxpf",
+        "heading_TFYwy9",
+        "sub_heading_GYXKXU",
+        "description_rhpUbU",
+        "buttons_tPNdX6"
       ],
-      "name": "Richtext",
+      "name": "t:sections.richtext.name",
       "settings": {
-        "section_bg": "#33b9c0",
-        "inner_bg": "#d39c9c",
+        "section_bg": "#fff",
+        "inner_bg": "#fff",
         "button_bg_primary": "#000",
         "button_bg_secondary": "#000",
         "button_text_primary": "#fff",
         "button_text_secondary": "#fff",
         "padding_top": 3,
         "padding_bottom": 3,
-        "padding_inner": 1
+        "padding_inner": 3
       }
     }
   },
   "order": [
     "hero_banner_gCyNDx",
-    "richtext_Ydcxqt"
+    "richtext_YUDRBD"
   ]
 }

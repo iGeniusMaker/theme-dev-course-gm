@@ -2,6 +2,24 @@
   assign menu = section.settings.menu
 -%}
 <div class="page-width">
+    <div class="language-selector">
+        {% form 'localization' %}
+  <select name="language_code">
+    {% for language in localization.available_languages %}
+      <option
+        value="{{ language.iso_code }}"
+        {% if language.iso_code == localization.language.iso_code %}
+          selected
+        {% endif %}
+      >
+        {{ language.endonym_name }}
+      </option>
+    {% endfor %}
+  </select>
+
+  <button type="submit">Change language</button>
+{% endform %}
+    </div>
 <nav class="primary-navigation">
     <ul class="menu flex-wrap">
         {% for link in menu.links %}

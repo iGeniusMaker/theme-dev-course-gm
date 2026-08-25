@@ -10,6 +10,7 @@
     >
     <div class="richtext__inner page-width">
         <div class="richtext__content">
+            <h1>{{ 'general.welcome_message' | t }}</h1>
             {% for block in section.blocks %}
                 <div class="richtext__blocks" {{ block.shopify_attributes }}>
                     {% case block.type %}
@@ -47,12 +48,12 @@
 
 {% schema %}
 {
-    "name": "Richtext",
+    "name": "t:sections.richtext.name",
     "tag": "section",
     "settings": [
         {
             "type": "header",
-            "content": "Color"
+            "content": "t:sections.general.color"
         },
         {
             "type": "color",
@@ -94,12 +95,12 @@
         },
         {
             "type": "header",
-            "content": "Spacing"
+            "content": "t:sections.general.spacing"
         },
         {
             "type": "range",
             "id": "padding_top",
-            "label": "Padding top",
+            "label": "t:sections.general.padding_top",
             "min": 0,
             "max": 10,
             "step": 1,
@@ -109,7 +110,7 @@
         {
             "type": "range",
             "id": "padding_bottom",
-            "label": "Padding bottom",
+            "label": "t:sections.general.padding_bottom",
             "min": 0,
             "max": 10,
             "step": 1,
@@ -215,7 +216,7 @@
     ],
     "presets": [
         {
-            "name": "Richtext",
+            "name": "t:sections.richtext.name",
             "blocks": [
                 {
                     "type": "caption"
