@@ -60,49 +60,51 @@
                 {% endfor %}
             </ul>
         </nav>
-        <button type="button" class="mobile-navigation__toggle large-up-hide" aria-controls="mobile-navigation" aria-expanded="false" aria-label="Mobile menu">
-            <span class="mobile-navigation__open-icon">
-               {% render 'icons', icon_name: 'hamburger' %} 
-            </span>
-            <span class="mobile-navigation__close-icon">
-                 {% render 'icons', icon_name: 'close' %}
-            </span>   
-        </button>
-        <div class="mobile-navigation__overlay"></div>
-        <nav id="mobile-navigation" class="mobile-navigation large-up-hide">
-           <ul class="mobile-navigation__menu">
-                {% for link in menu.links %}
-                    {% if link.links != blank %}
-                        <li>
-                            <details class="mobile-navigation__dropdown">
-                                <summary class="flex-between">{{ link.title }} {% render 'icons', icon_name: 'chevron-down', extra_class: 'mobile-navigation__chevron' %}</summary>
-                                <ul class="mobile-navigation__submenu">
-                                    {% for child in link.links %}
-                                        {% if child.links != blank %}
-                                            <li>
-                                                <details class="mobile-navigation__dropdown mobile-navigation__dropdown--nested">
-                                                    <summary class="flex-between">{{ child.title }} {% render 'icons', icon_name: 'chevron-down', extra_class: 'mobile-navigation__chevron' %}</summary>
-                                                    <ul class="mobile-navigation__submenu mobile-navigation__submenu--nested">
-                                                        {% for grand_child in child.links %}
-                                                            <li>{{ grand_child.title | link_to: grand_child.url, class: 'd-block' }}</li>
-                                                        {% endfor %}
-                                                    </ul>
-                                                </details>
-                                            </li>
-                                        {% endif %}
-                                        <li>{{ child.title | link_to: child.url, class: 'd-block' }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </details>
-                        </li>
-                    {% else %}
-                        <li>{{ link.title | link_to: link.url, class: 'd-block' }}</li>
-                    {% endif %}
-                    
-                {% endfor %}
-           </ul>
-           <small>Made with ❤ by Genius Maker</small>
-        </nav>
+        <mobile-nav>
+            <button type="button" class="mobile-navigation__toggle large-up-hide" aria-controls="mobile-navigation" aria-expanded="false" aria-label="Mobile menu">
+                <span class="mobile-navigation__open-icon">
+                {% render 'icons', icon_name: 'hamburger' %} 
+                </span>
+                <span class="mobile-navigation__close-icon">
+                    {% render 'icons', icon_name: 'close' %}
+                </span>   
+            </button>
+            <div class="mobile-navigation__overlay"></div>
+            <nav id="mobile-navigation" class="mobile-navigation large-up-hide">
+            <ul class="mobile-navigation__menu">
+                    {% for link in menu.links %}
+                        {% if link.links != blank %}
+                            <li>
+                                <details class="mobile-navigation__dropdown">
+                                    <summary class="flex-between">{{ link.title }} {% render 'icons', icon_name: 'chevron-down', extra_class: 'mobile-navigation__chevron' %}</summary>
+                                    <ul class="mobile-navigation__submenu">
+                                        {% for child in link.links %}
+                                            {% if child.links != blank %}
+                                                <li>
+                                                    <details class="mobile-navigation__dropdown mobile-navigation__dropdown--nested">
+                                                        <summary class="flex-between">{{ child.title }} {% render 'icons', icon_name: 'chevron-down', extra_class: 'mobile-navigation__chevron' %}</summary>
+                                                        <ul class="mobile-navigation__submenu mobile-navigation__submenu--nested">
+                                                            {% for grand_child in child.links %}
+                                                                <li>{{ grand_child.title | link_to: grand_child.url, class: 'd-block' }}</li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </details>
+                                                </li>
+                                            {% endif %}
+                                            <li>{{ child.title | link_to: child.url, class: 'd-block' }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </details>
+                            </li>
+                        {% else %}
+                            <li>{{ link.title | link_to: link.url, class: 'd-block' }}</li>
+                        {% endif %}
+                        
+                    {% endfor %}
+            </ul>
+            <small>Made with ❤ by Genius Maker</small>
+            </nav>
+        </mobile-nav>
     </div>
 </div>
 
@@ -128,33 +130,6 @@
         });
 
         }
-
-        // mobile nav
-        const toggleButton = document.querySelector(".mobile-navigation__toggle");
-        const mobileNavigationPanel = document.querySelector(".mobile-navigation");
-        const mobileNavigationOverlay = document.querySelector(".mobile-navigation__overlay");
-
-        toggleButton.addEventListener("click", () => {
-            mobileNavigationPanel.classList.toggle("is-open");
-            mobileNavigationOverlay.classList.toggle("is-open");
-
-            const isOpen = mobileNavigationPanel.classList.contains("is-open");
-
-            toggleButton.setAttribute("aria-expanded", isOpen);
-        });
-
-        function closeMobileNavigationPanel() {
-            mobileNavigationPanel.classList.remove("is-open");
-            mobileNavigationOverlay.classList.remove("is-open");
-            toggleButton.setAttribute("aria-expanded", false);
-        }
-
-        mobileNavigationOverlay.addEventListener("click", closeMobileNavigationPanel);
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key !== "Escape" || !mobileNavigationPanel.classList.contains("is-open")) return;
-            closeMobileNavigationPanel();
-        });
 
     });
 </script>

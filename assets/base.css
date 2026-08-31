@@ -192,6 +192,10 @@ summary::-webkit-details-marker {
 
 /* MOBILE NAVIGATION */
 
+mobile-nav {
+  order: -1;
+}
+
 .mobile-navigation__overlay {
   position: fixed;
   inset: 0;
@@ -232,7 +236,6 @@ summary::-webkit-details-marker {
 }
 
 .mobile-navigation__toggle {
-  order: -1;
   cursor: pointer;
 }
 .mobile-navigation__close-icon {
