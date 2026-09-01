@@ -21,7 +21,7 @@
                 <button type="submit">Change language</button>
             {% endform %}
         </div>
-        <nav class="primary-navigation small-hide">
+        <nav class="primary-navigation small-hide" aria-label="Primary navigation">
             <ul class="menu flex-wrap">
                 {% for link in menu.links %}
                     {% if link.links != blank %}
@@ -70,7 +70,7 @@
                 </span>   
             </button>
             <div class="mobile-navigation__overlay"></div>
-            <nav id="mobile-navigation" class="mobile-navigation large-up-hide">
+            <nav id="mobile-navigation" class="mobile-navigation large-up-hide" aria-label="Mobile navigation">
             <ul class="mobile-navigation__menu">
                     {% for link in menu.links %}
                         {% if link.links != blank %}
@@ -130,6 +130,8 @@
         });
 
         }
+
+        
 
     });
 </script>
