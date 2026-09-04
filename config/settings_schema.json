@@ -58,5 +58,91 @@
         "default": "poppins_n7"
       }
     ]
+  },
+  {
+    "name": "Color scheme",
+    "settings": [
+      {
+        "type": "color_scheme_group",
+        "id": "color_schemes",
+        "definition": [
+          {
+            "type": "color",
+            "id": "background",
+            "label": "Background",
+            "default": "#fff"
+          },
+          {
+            "type": "color_background",
+            "id": "background_gradient",
+            "label": "Background gradient"
+          },
+          {
+            "type": "color",
+            "id": "text",
+            "label": "Text",
+            "default": "#000"
+          },
+          {
+            "type": "color",
+            "id": "accent",
+            "label": "Accent",
+            "default": "#000"
+          },
+          {
+            "type": "header",
+            "content": "Button"
+          },
+          {
+            "type": "color",
+            "id": "button_bg",
+            "label": "Button background",
+            "default": "#000"
+          },
+          {
+            "type": "color",
+            "id": "button_text",
+            "label": "Button text",
+            "default": "#FFF"
+          },
+          {
+            "type": "color",
+            "id": "button_border",
+            "label": "Button border",
+            "default": "#000"
+          }
+        ],
+        "role": {
+          "text": "text",
+          "background": {
+            "solid": "background",
+            "gradient": "background_gradient"
+          },
+          "links": "text",
+          "icons": "text",
+          "primary_button": "button_bg",
+          "on_primary_button": "button_text",
+          "primary_button_border": "button_border",
+          "secondary_button": "background",
+          "on_secondary_button": "button_bg",
+          "secondary_button_border": "button_border"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Global border radius",
+    "settings": [
+      {
+        "type": "range",
+        "id": "border_radius",
+        "label": "Border radius",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 0
+      }
+    ]
   }
 ]

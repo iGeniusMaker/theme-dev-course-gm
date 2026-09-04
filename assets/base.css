@@ -23,8 +23,9 @@ html {
 
 body {
   height: 100%;
-  background-color: #ffffff;
-  color: #1a1a1a;
+  background-color: rgb(var(--color-background));
+  background-image: var(--color-background-gradient);
+  color: rgb(var(--color-text));
   font-family: var(--body-font);
   font-size: var(--font-size-base);
   line-height: 1.5;
@@ -72,12 +73,6 @@ textarea {
   font: inherit;
 }
 
-button {
-  background-color: transparent;
-  border: 0;
-  text-align: center;
-}
-
 summary {
   list-style: none;
   cursor: pointer;
@@ -103,6 +98,20 @@ summary::-webkit-details-marker {
   .page-width {
     padding-inline: var(--page-padding-desktop);
   }
+}
+
+.color-scheme {
+  background-color: rgb(var(--color-background));
+  background-image: var(--color-background-gradient);
+  color: rgb(var(--color-text));
+}
+
+[class*="__inner"] {
+  border-radius: var(--global-border-radius);
+}
+
+.caption {
+  color: rgb(var(--color-accent));
 }
 
 .text-center {
@@ -147,16 +156,37 @@ summary::-webkit-details-marker {
 }
 
 .btn {
-  display: inline-block;
-  background: black;
-  color: #fff;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem 1.8rem;
+  min-width: 9rem;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.025rem;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: rgb(var(--color-text));
+  border: 1px solid transparent;
+  border-radius: var(--global-border-radius);
 }
 
-.btn--secondary {
-  background: rgb(187, 49, 49);
-  color: #fff;
+.btn-primary {
+  background-color: rgb(var(--color-button-bg));
+  color: rgb(var(--color-button-text));
+  border-color: rgb(var(--color-button-border));
+}
+
+.btn-outline {
+  color: rgb(var(--color-button-bg));
+  border-color: rgb(var(--color-button-border));
+}
+
+.btn-link {
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
 }
 
 /* HEADER MENU */
@@ -280,12 +310,10 @@ mobile-nav {
 .richtext {
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
-  background-color: var(--section-bg);
 }
 
 .richtext__content {
   padding: var(--padding-inner);
-  background-color: var(--inner-bg);
   display: grid;
   justify-content: center;
   justify-items: center;

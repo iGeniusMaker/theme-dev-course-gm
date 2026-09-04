@@ -1,152 +1,165 @@
 {%- liquid
   assign menu = section.settings.menu
 -%}
-<div class="header page-width temp-border py-2">
-    <div class="header__inner flex-between">
-        <div class="language-selector">
-            {% form 'localization' %}
-                <select name="language_code">
-                    {% for language in localization.available_languages %}
-                    <option
-                        value="{{ language.iso_code }}"
-                        {% if language.iso_code == localization.language.iso_code %}
-                        selected
-                        {% endif %}
-                    >
-                        {{ language.endonym_name }}
-                    </option>
-                    {% endfor %}
-                </select>
+<div class="color-scheme color-{{ section.settings.color_scheme.id }} header py-2">
+  <div class="header__inner page-width flex-between">
+    <div class="language-selector">
+      {% form 'localization' %}
+        <select name="language_code">
+          {% for language in localization.available_languages %}
+            <option
+              value="{{ language.iso_code }}"
+              {% if language.iso_code == localization.language.iso_code %}
+                selected
+              {% endif %}
+            >
+              {{ language.endonym_name }}
+            </option>
+          {% endfor %}
+        </select>
 
-                <button type="submit">Change language</button>
-            {% endform %}
-        </div>
-        <nav class="primary-navigation small-hide" aria-label="Primary navigation">
-            <ul class="menu flex-wrap">
-                {% for link in menu.links %}
-                    {% if link.links != blank %}
-                        <li>
-                        <details class="dropdown-list">
-                                <summary class="flex-between">{{ link.title }}
-                                    {% render 'icons', icon_name: 'chevron-down', icon_stroke: 1.5 %}
-                                </summary>
-                                <ul class="sub-menu">
-                                    {% for child in link.links %}
-                                        {% if child.links != blank %}
-                                            <li>
-                                                <details class="dropdown-list dropdown-list-nested">
-                                                    <summary class="flex-between">{{ child.title }}
-                                                        {% render 'icons', icon_name: 'chevron-right', icon_stroke: 1.5 %}
-                                                    </summary>
-                                                    <ul class="sub-menu sub-menu--flyout">
-                                                        {% for grand_child in child.links %}
-                                                            <li>{{ grand_child.title | link_to: grand_child.url, class: 'd-block' }}</li>
-                                                        {% endfor %}   
-                                                    </ul>
-                                                </details>
-                                            </li>
-                                        {% else %}
-                                            <li>{{ child.title | link_to: child.url, class: 'd-block' }}</li>
-                                        {% endif %}
-                                        
-                                    {% endfor %}
-                                </ul>
-                            </details> 
-                        </li>
-                    {% else %}
-                        <li>{{ link.title | link_to: link.url, class: 'd-block' }}</li>
-                    {% endif %}
-                    
-                {% endfor %}
-            </ul>
-        </nav>
-        <mobile-nav>
-            <button type="button" class="mobile-navigation__toggle large-up-hide" aria-controls="mobile-navigation" aria-expanded="false" aria-label="Mobile menu">
-                <span class="mobile-navigation__open-icon">
-                {% render 'icons', icon_name: 'hamburger' %} 
-                </span>
-                <span class="mobile-navigation__close-icon">
-                    {% render 'icons', icon_name: 'close' %}
-                </span>   
-            </button>
-            <div class="mobile-navigation__overlay"></div>
-            <nav id="mobile-navigation" class="mobile-navigation large-up-hide" aria-label="Mobile navigation">
-            <ul class="mobile-navigation__menu">
-                    {% for link in menu.links %}
-                        {% if link.links != blank %}
-                            <li>
-                                <details class="mobile-navigation__dropdown">
-                                    <summary class="flex-between">{{ link.title }} {% render 'icons', icon_name: 'chevron-down', extra_class: 'mobile-navigation__chevron' %}</summary>
-                                    <ul class="mobile-navigation__submenu">
-                                        {% for child in link.links %}
-                                            {% if child.links != blank %}
-                                                <li>
-                                                    <details class="mobile-navigation__dropdown mobile-navigation__dropdown--nested">
-                                                        <summary class="flex-between">{{ child.title }} {% render 'icons', icon_name: 'chevron-down', extra_class: 'mobile-navigation__chevron' %}</summary>
-                                                        <ul class="mobile-navigation__submenu mobile-navigation__submenu--nested">
-                                                            {% for grand_child in child.links %}
-                                                                <li>{{ grand_child.title | link_to: grand_child.url, class: 'd-block' }}</li>
-                                                            {% endfor %}
-                                                        </ul>
-                                                    </details>
-                                                </li>
-                                            {% endif %}
-                                            <li>{{ child.title | link_to: child.url, class: 'd-block' }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                </details>
-                            </li>
-                        {% else %}
-                            <li>{{ link.title | link_to: link.url, class: 'd-block' }}</li>
-                        {% endif %}
-                        
-                    {% endfor %}
-            </ul>
-            <small>Made with ❤ by Genius Maker</small>
-            </nav>
-        </mobile-nav>
+        <button type="submit">Change language</button>
+      {% endform %}
     </div>
+    <nav class="primary-navigation small-hide" aria-label="Primary navigation">
+      <ul class="menu flex-wrap">
+        {% for link in menu.links %}
+          {% if link.links != blank %}
+            <li>
+              <details class="dropdown-list">
+                <summary class="flex-between">
+                  {{ link.title }}
+                  {% render 'icons', icon_name: 'chevron-down', icon_stroke: 1.5 %}
+                </summary>
+                <ul class="sub-menu">
+                  {% for child in link.links %}
+                    {% if child.links != blank %}
+                      <li>
+                        <details class="dropdown-list dropdown-list-nested">
+                          <summary class="flex-between">
+                            {{ child.title }}
+                            {% render 'icons', icon_name: 'chevron-right', icon_stroke: 1.5 %}
+                          </summary>
+                          <ul class="sub-menu sub-menu--flyout">
+                            {% for grand_child in child.links %}
+                              <li>{{ grand_child.title | link_to: grand_child.url, class: 'd-block' }}</li>
+                            {% endfor %}
+                          </ul>
+                        </details>
+                      </li>
+                    {% else %}
+                      <li>{{ child.title | link_to: child.url, class: 'd-block' }}</li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </details>
+            </li>
+          {% else %}
+            <li>{{ link.title | link_to: link.url, class: 'd-block' }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+    <mobile-nav>
+      <button
+        type="button"
+        class="mobile-navigation__toggle large-up-hide"
+        aria-controls="mobile-navigation"
+        aria-expanded="false"
+        aria-label="Mobile menu"
+      >
+        <span class="mobile-navigation__open-icon">
+          {% render 'icons', icon_name: 'hamburger' %}
+        </span>
+        <span class="mobile-navigation__close-icon">
+          {% render 'icons', icon_name: 'close' %}
+        </span>
+      </button>
+      <div class="mobile-navigation__overlay"></div>
+      <nav id="mobile-navigation" class="mobile-navigation large-up-hide" aria-label="Mobile navigation">
+        <ul class="mobile-navigation__menu">
+          {% for link in menu.links %}
+            {% if link.links != blank %}
+              <li>
+                <details class="mobile-navigation__dropdown">
+                  <summary class="flex-between">
+                    {{ link.title }}
+                    {% render 'icons', icon_name: 'chevron-down', extra_class: 'mobile-navigation__chevron' %}
+                  </summary>
+                  <ul class="mobile-navigation__submenu">
+                    {% for child in link.links %}
+                      {% if child.links != blank %}
+                        <li>
+                          <details class="mobile-navigation__dropdown mobile-navigation__dropdown--nested">
+                            <summary class="flex-between">
+                              {{ child.title }}
+                              {% render 'icons', icon_name: 'chevron-down', extra_class: 'mobile-navigation__chevron' %}
+                            </summary>
+                            <ul class="mobile-navigation__submenu mobile-navigation__submenu--nested">
+                              {% for grand_child in child.links %}
+                                <li>{{ grand_child.title | link_to: grand_child.url, class: 'd-block' }}</li>
+                              {% endfor %}
+                            </ul>
+                          </details>
+                        </li>
+                      {% endif %}
+                      <li>{{ child.title | link_to: child.url, class: 'd-block' }}</li>
+                    {% endfor %}
+                  </ul>
+                </details>
+              </li>
+            {% else %}
+              <li>{{ link.title | link_to: link.url, class: 'd-block' }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <small>Made with ❤ by Genius Maker</small>
+      </nav>
+    </mobile-nav>
+  </div>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const primaryNav = document.querySelector(".primary-navigation");
+  document.addEventListener('DOMContentLoaded', () => {
+    const primaryNav = document.querySelector('.primary-navigation');
 
-        if (primaryNav){
-           function closeAllDropdowns(){
-            const dropdowns = primaryNav.querySelectorAll(".dropdown-list[open]");
-            dropdowns.forEach((dropdown) => {
-                dropdown.open = false;
-            });
-        }
-        
-        document.addEventListener("keydown", e => {
-            if (e.key !== "Escape") return;
-            closeAllDropdowns();
+    if (primaryNav) {
+      function closeAllDropdowns() {
+        const dropdowns = primaryNav.querySelectorAll('.dropdown-list[open]');
+        dropdowns.forEach((dropdown) => {
+          dropdown.open = false;
         });
+      }
 
-        document.addEventListener("click", e => {
-            if (!primaryNav.contains(e.target)) closeAllDropdowns();
-        });
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        closeAllDropdowns();
+      });
 
-        }
-
-        
-
-    });
+      document.addEventListener('click', (e) => {
+        if (!primaryNav.contains(e.target)) closeAllDropdowns();
+      });
+    }
+  });
 </script>
 
 {% schema %}
 {
-    "name": "Header",
-    "tag": "section",
-    "settings": [
-        {
-            "type": "link_list",
-            "id": "menu",
-            "label": "Select menu",
-            "default": "main-menu"
-        }
-    ]
+  "name": "Header",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Select menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ]
 }
 {% endschema %}

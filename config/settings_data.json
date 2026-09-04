@@ -14,7 +14,42 @@
     "page_padding_desktop": 80,
     "body_font": "inter_n4",
     "heading_font": "poppins_n5",
-    "content_for_index": []
+    "content_for_index": [],
+    "color_schemes": {
+      "scheme-1": {
+        "settings": {
+          "background": "#FFF",
+          "background_gradient": "",
+          "text": "#000",
+          "accent": "#000",
+          "button_bg": "#000",
+          "button_text": "#FFF",
+          "button_border": "#000"
+        }
+      },
+      "scheme-2": {
+        "settings": {
+          "background": "#FFF",
+          "background_gradient": "",
+          "text": "#000",
+          "accent": "#000",
+          "button_bg": "#000",
+          "button_text": "#FFF",
+          "button_border": "#000"
+        }
+      },
+      "scheme-3": {
+        "settings": {
+          "background": "#FFF",
+          "background_gradient": "",
+          "text": "#000",
+          "accent": "#000",
+          "button_bg": "#000",
+          "button_text": "#FFF",
+          "button_border": "#000"
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
@@ -22,7 +57,42 @@
       "page_padding": 16,
       "page_padding_desktop": 80,
       "body_font": "inter_n4",
-      "heading_font": "poppins_n7"
+      "heading_font": "poppins_n7",
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#FFF",
+            "background_gradient": "",
+            "text": "#000",
+            "accent": "#000",
+            "button_bg": "#000",
+            "button_text": "#FFF",
+            "button_border": "#000"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#FFF",
+            "background_gradient": "",
+            "text": "#000",
+            "accent": "#000",
+            "button_bg": "#000",
+            "button_text": "#FFF",
+            "button_border": "#000"
+          }
+        },
+        "scheme-3": {
+          "settings": {
+            "background": "#FFF",
+            "background_gradient": "",
+            "text": "#000",
+            "accent": "#000",
+            "button_bg": "#000",
+            "button_text": "#FFF",
+            "button_border": "#000"
+          }
+        }
+      }
     }
   }
 }
